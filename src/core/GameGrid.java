@@ -127,11 +127,13 @@ public class GameGrid extends Grid {
 	 * @param shape
 	 *            the shape to drop
 	 */
-	public void dropShape(int col, Shape shape) {
+	public int dropShape(int col, Shape shape) {
+		int returnRow = 0;
+		
 		// Repeat for every row in the grid
 		// Starts from an imaginary row to accommodate the whole shape
 		for (int row = 0 - shape.getHeight() + 1; row < this.rows; row++) {
-
+			returnRow = row;
 			if (canProgress(row, col, shape)) {
 				// Repeat for each row in the shape
 				for (int gridRow = shape.getHeight() - 1; gridRow >= 0; gridRow--) {
@@ -172,9 +174,12 @@ public class GameGrid extends Grid {
 				}
 				System.out.println(this);
 			} else {
+				System.out.println("Row at break was: " + row);
 				break;
 			}
 		}
+		
+		return returnRow;
 	}
 
 	private boolean canProgress(int row, int col, Shape shape) {

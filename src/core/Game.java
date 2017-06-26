@@ -21,9 +21,16 @@ public class Game {
 		shapes.add(new TShape());
 		Random shapeSelect = new Random();
 		Random colSelect = new Random();
-		for(int i = 0; i < 20; i++) {
-			grid.dropShape(colSelect.nextInt(6), shapes.get(shapeSelect.nextInt(shapes.size())));
+		for(int i = 0; i < 10; i++) {
+			System.out.println("Shape Number " + (i+1));
+			int row = grid.dropShape(colSelect.nextInt(6), shapes.get(shapeSelect.nextInt(shapes.size())));
 			score += grid.removeCompletedRows();
+			System.out.println("Score: " + score);
+			System.out.println();
+			
+			if(row == 0) {
+				break;
+			}
 		}
 	}
 

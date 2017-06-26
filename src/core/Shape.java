@@ -6,6 +6,10 @@ public abstract class Shape extends Grid {
 		super(cols, rows);
 	}
 	
+	public Shape reflection() {
+		return this;
+	}
+	
 	public void rotateRight() {
 		
 		Grid newGrid = new Grid(rows, cols);

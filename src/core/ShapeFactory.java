@@ -23,7 +23,8 @@ public class ShapeFactory {
 		int rotate = rand.nextInt(2);
 		
 		if(rotate > 0) {
-			int rotations = rand.nextInt(3);
+			
+			int rotations = rand.nextInt(2) + 1;
 			if (rotate == 1) {
 				
 			} else {

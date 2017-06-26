@@ -2,8 +2,9 @@ package core;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
-public class Grid {
+public class Grid extends Observable {
 	
 	protected List<Row> grid;
 	protected int rows;

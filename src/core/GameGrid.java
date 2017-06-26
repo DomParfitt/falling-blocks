@@ -127,7 +127,10 @@ public class GameGrid extends Grid {
 	 * @param shape
 	 *            the shape to drop
 	 */
-	public int dropShape(int col, Shape shape) {
+	//TODO: It's clunky having this be Observable, split this method out into
+	// 		a single downwards movement that must be called repeatedly (this
+	//		should also make it easier to implement controlling block)
+	public synchronized int dropShape(int col, Shape shape) {
 		int returnRow = 0;
 		
 		// Repeat for every row in the grid
@@ -144,21 +147,6 @@ public class GameGrid extends Grid {
 						//
 						if (gridRow + row >= 0) {
 
-							// If any row of the shape reaches the bottom then
-							// stop
-							// if (gridRow + row == this.rows) {
-							// return;
-							// }
-							//
-							// // If the next space is occupied then stop
-							// if (isOccupied(gridRow + row, col + gridCol)) {
-							// System.out.println("GridRow: " + gridRow + ";
-							// row: " + row);
-							// System.out.println("GridCol: " + gridCol + ";
-							// col: " + col);
-							// return;
-							// }
-
 							// Moves the shape downwards
 							if (shape.isOccupied(gridRow, gridCol)) {
 								// System.out.println("Shape is occupied");
@@ -173,6 +161,14 @@ public class GameGrid extends Grid {
 					}
 				}
 				System.out.println(this);
+				setChanged();
+				notifyObservers();
+				try {
+					wait(1000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} else {
 				System.out.println("Row at break was: " + row);
 				break;

@@ -14,7 +14,9 @@ public class GameApp extends Application {
 	@Override
 	public void start(Stage stage) throws Exception {
 		Game game = new Game();
+		KeyHandler controller = new KeyHandler(game);
 		GameGridComponent gameGridComponent = new GameGridComponent(9, 9);
+		gameGridComponent.addController(controller);
 		game.addObserver(gameGridComponent);
 		Scene scene = new Scene(gameGridComponent, 500, 500);
 		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());

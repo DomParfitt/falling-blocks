@@ -1,7 +1,6 @@
 package test;
 
-import shapes.Shape;
-import shapes.TShape;
+import core.Game;
 
 public class TestRunner {
 	
@@ -24,10 +23,15 @@ public class TestRunner {
 //		grid.removeCompletedRows();
 //		System.out.println(grid);
 		
-		Shape shape = new TShape();
-		System.out.println(shape);
-		shape = shape.reflection();
-		System.out.println(shape);
+//		Shape shape = new ZShape();
+//		System.out.println(shape);
+//		List<Position> edges = shape.getRightEdge();
+//		for(Position edge : edges) {
+//			System.out.print(edge + " ");
+//		}
+//		System.out.println(shape);
+//		shape = shape.reflection();
+//		System.out.println(shape);
 //		shape.rotateLeft();
 //		System.out.println(shape);
 //		shape.rotateLeft();
@@ -35,7 +39,7 @@ public class TestRunner {
 //		shape.rotateLeft();
 //		System.out.println(shape);
 		
-//		Game game = new Game();
-//		game.startGame();
+		Game game = new Game();
+		game.startGame();
 	}
 }

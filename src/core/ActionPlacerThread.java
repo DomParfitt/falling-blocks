@@ -1,13 +1,26 @@
 package core;
 
-public class ActionQueuerThread extends GameThread {
+public class ActionPlacerThread extends GameThread {
 
-	public ActionQueuerThread(Game game) {
+	private long waitTime;
+	
+	public ActionPlacerThread(Game game, long waitTime) {
 		super(game);
+		this.waitTime = waitTime;
 	}
 	
 	@Override
 	public void run() {
-		//Enqueue an action
+		while(!game.getGrid().hasGameEnded()) {
+			game.enqueue(GameAction.MOVE_DOWN);
+			synchronized (this) {
+				try {
+					wait(waitTime);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}
 	}
 }

@@ -5,9 +5,13 @@ public class ZShape extends Shape {
 	public ZShape() {
 		super(3, 2);
 		this.addBlock(0, 0);
+//		System.out.println(this);
 		this.addBlock(0, 1);
+//		System.out.println(this);
 		this.addBlock(1, 1);
+//		System.out.println(this);
 		this.addBlock(1, 2);
+//		System.out.println(this);
 	}
 	
 	public Shape reflection() {

@@ -6,14 +6,18 @@ import java.util.Random;
 
 /**
  * Factory class for providing Shape objects to the Game on request
+ * 
  * @author Dom Parfitt
  *
  */
 public class ShapeFactory {
-	
+
 	private List<Shape> shapes;
 	private Random rand;
-	
+
+	/**
+	 * Default constructor
+	 */
 	public ShapeFactory() {
 		this.shapes = new ArrayList<>();
 		shapes.add(new LShape());
@@ -21,33 +25,41 @@ public class ShapeFactory {
 		shapes.add(new ZShape());
 		this.rand = new Random();
 	}
-	
+
+	/**
+	 * Construct a ShapeFactory with a list of Shapes
+	 * @param shapes a list of Shapes
+	 */
 	public ShapeFactory(List<Shape> shapes) {
 		this.shapes = shapes;
 		this.rand = new Random();
 	}
-	
+
+	/**
+	 * Provides a shape to the requester
+	 * @return a randomly selected Shape which may have been
+	 * 			reflected and/or rotated
+	 */
 	public Shape getShape() {
+
+		// Randomly select a shape from the list
 		Shape shape = shapes.get(rand.nextInt(shapes.size()));
-		
-		if(rand.nextBoolean()) {
+
+		// Randomly determine whether the shape should be reflected
+		if (rand.nextBoolean()) {
 			shape = shape.reflection();
 		}
-		
-		int rotate = rand.nextInt(2);
-		
-		if(rotate > 0) {
+
+		//Determine whether shape should be rotated
+		if(rand.nextBoolean()) {
 			
+			//Determine how many rotations to perform
 			int rotations = rand.nextInt(2) + 1;
-			if (rotate == 1) {
-				
-			} else {
-				for(int i = 0; i < rotations; i++) {
-					shape.rotateRight();
-				}
+			for(int i = 0; i < rotations; i++) {
+				shape.rotateRight();
 			}
 		}
-		
+
 		return shape;
 	}
 

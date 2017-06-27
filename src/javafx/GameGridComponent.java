@@ -6,6 +6,8 @@ import java.util.Observer;
 import core.Game;
 import core.GameGrid;
 import javafx.application.Platform;
+import javafx.event.EventHandler;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 public class GameGridComponent extends GridPane implements Observer {
@@ -20,6 +22,10 @@ public class GameGridComponent extends GridPane implements Observer {
 				add(new EmptySpace(), j, i);
 			}
 		}
+	}
+	
+	public void addController(KeyHandler controller) {
+		this.setOnKeyPressed(controller);
 	}
 
 	@Override

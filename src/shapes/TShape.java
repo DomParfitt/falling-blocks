@@ -1,4 +1,4 @@
-package core;
+package shapes;
 
 public class TShape extends Shape {
 

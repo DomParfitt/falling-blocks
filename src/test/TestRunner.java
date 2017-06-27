@@ -1,7 +1,7 @@
 package test;
 
-import core.Shape;
-import core.TShape;
+import shapes.Shape;
+import shapes.TShape;
 
 public class TestRunner {
 	

@@ -1,9 +1,14 @@
-package core;
+package shapes;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Factory class for providing Shape objects to the Game on request
+ * @author Dom Parfitt
+ *
+ */
 public class ShapeFactory {
 	
 	private List<Shape> shapes;

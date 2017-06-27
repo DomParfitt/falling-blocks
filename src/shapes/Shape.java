@@ -1,4 +1,6 @@
-package core;
+package shapes;
+
+import core.Grid;
 
 public abstract class Shape extends Grid {
 

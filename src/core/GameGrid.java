@@ -3,6 +3,8 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 
+import shapes.Shape;
+
 public class GameGrid extends Grid {
 
 	public GameGrid(int cols, int rows) {

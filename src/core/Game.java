@@ -6,6 +6,8 @@ import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
 
+import shapes.ShapeFactory;
+
 public class Game extends Observable implements Observer {
 	
 	private GameGrid grid;

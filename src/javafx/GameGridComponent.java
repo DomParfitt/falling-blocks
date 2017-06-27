@@ -6,8 +6,6 @@ import java.util.Observer;
 import core.Game;
 import core.GameGrid;
 import javafx.application.Platform;
-import javafx.event.EventHandler;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 
 public class GameGridComponent extends GridPane implements Observer {
@@ -24,10 +22,6 @@ public class GameGridComponent extends GridPane implements Observer {
 		}
 	}
 	
-	public void addController(KeyHandler controller) {
-		this.setOnKeyPressed(controller);
-	}
-
 	@Override
 	public void update(Observable obs, Object obj) {
 		Platform.runLater(new Runnable() {
@@ -37,12 +31,12 @@ public class GameGridComponent extends GridPane implements Observer {
 				Game game = (Game) obs;
 				GameGrid grid = game.getGrid();
 				getChildren().clear();
-				for (int i = 0; i < rows; i++) {
+				for (int i = rows - 1; i >= 0; i--) {
 					for (int j = 0; j < cols; j++) {
 						if (grid.isOccupied(i, j)) {
-							add(new Block(), j, i);
+							add(new Block(), j, rows - i);
 						} else {
-							add(new EmptySpace(), j, i);
+							add(new EmptySpace(), j, rows - i);
 						}
 					}
 				}

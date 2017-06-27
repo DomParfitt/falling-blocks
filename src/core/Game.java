@@ -13,6 +13,7 @@ public class Game extends Observable implements Observer {
 	private ShapeFactory shapeFactory;
 	private ActionQueue queue;
 	private int score;
+	private Shape currentShape, nextShape;
 
 	public Game() {
 		this.grid = new GameGrid(9, 9);
@@ -40,13 +41,19 @@ public class Game extends Observable implements Observer {
 		ActionPlacerThread placer = new ActionPlacerThread(this, 1000);
 		placer.start();
 		
-		RandomPlacerThread randomPlacer = new RandomPlacerThread(this, 300);
-		randomPlacer.start();
+//		RandomPlacerThread randomPlacer = new RandomPlacerThread(this, 300);
+//		randomPlacer.start();
+		
+		currentShape = shapeFactory.getShape();
+		nextShape = shapeFactory.getShape();
+		grid.addNewShape(currentShape, rand.nextInt(7));
+		setChanged();
+		notifyObservers();
 		
 		while (true) { //TODO: Someway to declare end condition
 			if (grid.hasActiveShape()) {
 				GameAction action = queue.dequeue();
-				System.out.println(action);
+//				System.out.println(action);
 				switch (action) {
 				case MOVE_DOWN:
 					grid.moveShapeDown();
@@ -70,14 +77,22 @@ public class Game extends Observable implements Observer {
 			} else {
 				grid.removeCompletedRows();
 				System.out.println("Dropping new shape");
-				Shape shape = shapeFactory.getShape();
-				grid.addNewShape(shape, rand.nextInt(7)); //TODO: Remove magic number
+				currentShape = nextShape;
+				nextShape = shapeFactory.getShape();
+				grid.addNewShape(currentShape, rand.nextInt(7)); //TODO: Remove magic number
 			}
-			System.out.println(grid);
-//			if(grid.hasGameEnded()) {
-//				break;
-//			}
+//			System.out.println(grid);
+			setChanged();
+			notifyObservers();
+			if(grid.hasGameEnded()) {
+				System.out.println("GAME OVER!");
+				break;
+			}
 		}
+	}
+	
+	public Shape getNextShape() {
+		return nextShape;
 	}
 
 	public GameGrid getGrid() {

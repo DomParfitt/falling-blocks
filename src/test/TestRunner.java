@@ -1,6 +1,7 @@
 package test;
 
-import core.Game;
+import shapes.ReflectedLShape;
+import shapes.Shape;
 
 public class TestRunner {
 	
@@ -22,8 +23,51 @@ public class TestRunner {
 //		System.out.println(grid);
 //		grid.removeCompletedRows();
 //		System.out.println(grid);
-		
-//		Shape shape = new ZShape();
+//		
+		Shape shape = new ReflectedLShape();
+		System.out.println(shape);
+//		shape = shape.reflection();
+//		System.out.println(shape);
+//		shape = shape.reflection();
+//		System.out.println(shape);
+//		shape = shape.reflection();
+//		System.out.println(shape);
+//		shape = shape.reflection();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		
+//		shape.reflection();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateRight();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		shape.rotateLeft();
+//		System.out.println(shape);
+//		shape.rotateLeft();
 //		System.out.println(shape);
 //		List<Position> edges = shape.getRightEdge();
 //		for(Position edge : edges) {
@@ -39,7 +83,7 @@ public class TestRunner {
 //		shape.rotateLeft();
 //		System.out.println(shape);
 		
-		Game game = new Game();
-		game.startGame();
+//		Game game = new Game();
+//		game.startGame();
 	}
 }

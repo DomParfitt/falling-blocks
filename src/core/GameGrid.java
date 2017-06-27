@@ -227,7 +227,6 @@ public class GameGrid extends Grid {
 	 */
 	public void addNewShape(Shape shape, int col) {
 		addShape(shape, rows, col);
-		System.out.println("Added new shape");
 		if(!canMoveShapeDown()) {
 			hasGameEnded = true;
 			hasActiveShape = false;

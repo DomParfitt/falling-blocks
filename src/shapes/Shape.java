@@ -15,6 +15,7 @@ public abstract class Shape extends Grid {
 		super(cols, rows);
 	}
 
+	@Deprecated
 	public Shape reflection() {
 		return this;
 	}

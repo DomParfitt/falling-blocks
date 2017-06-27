@@ -14,6 +14,7 @@ public class ShapeFactory {
 
 	private List<Shape> shapes;
 	private Random rand;
+	private int zCount = 0;
 
 	/**
 	 * Default constructor
@@ -21,8 +22,12 @@ public class ShapeFactory {
 	public ShapeFactory() {
 		this.shapes = new ArrayList<>();
 		shapes.add(new LShape());
+		shapes.add(new ReflectedLShape());
 		shapes.add(new TShape());
 		shapes.add(new ZShape());
+		shapes.add(new ReflectedZShape());
+		shapes.add(new LineShape());
+		shapes.add(new SquareShape());
 		this.rand = new Random();
 	}
 
@@ -44,11 +49,15 @@ public class ShapeFactory {
 
 		// Randomly select a shape from the list
 		Shape shape = shapes.get(rand.nextInt(shapes.size()));
+		
+		if(shape.getClass().equals(ZShape.class)) {
+			System.out.println("Z-Count: " +  ++zCount);
+		}
 
 		// Randomly determine whether the shape should be reflected
-		if (rand.nextBoolean()) {
-			shape = shape.reflection();
-		}
+//		if (rand.nextBoolean()) {
+//			shape = shape.reflection();
+//		}
 
 		//Determine whether shape should be rotated
 		if(rand.nextBoolean()) {

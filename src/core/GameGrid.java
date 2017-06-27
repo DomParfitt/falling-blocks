@@ -249,7 +249,7 @@ public class GameGrid extends Grid {
 			for (Position position : positions) {
 				int trueRow = row + position.getY();
 				int trueCol = col + position.getX();
-				if (trueRow < rows) {
+				if (trueRow < rows && trueCol < cols) {
 //					System.out.println("AddBlock - row: " + (row + position.getY()) + "; col: " + (col + position.getX()));
 					addBlock(trueRow, trueCol);
 				}
@@ -281,7 +281,6 @@ public class GameGrid extends Grid {
 
 	}
 	
-	//TODO: Move left/right don't seem to work when the shape is not fully visible
 
 	/**
 	 * Move the active shape left if possible
@@ -318,27 +317,26 @@ public class GameGrid extends Grid {
 		}
 	}
 	
-	//TODO: Check collisions on rotations
 	/**
 	 * Rotated the active shape anti-clockwise
 	 */
 	public void rotateShapeLeft() {
-//		if(hasActiveShape) {
-//			removeShape();
-//			shape.rotateRight();
-//			addShape(shape, shape.getYPosition(), shape.getXPosition());
-//		}
+		if(hasActiveShape && canMoveShapeLeft()) {
+			removeShape();
+			shape.rotateLeft();
+			addShape(shape, shape.getYPosition(), shape.getXPosition());
+		}
 	}
 	
 	/**
 	 * Rotated the active shape clockwise
 	 */
 	public void rotateShapeRight() {
-//		if(hasActiveShape) {
-//			removeShape();
-//			shape.rotateLeft();
-//			addShape(shape, shape.getYPosition(), shape.getXPosition());
-//		}
+		if(hasActiveShape && canMoveShapeRight()) {
+			removeShape();
+			shape.rotateRight();
+			addShape(shape, shape.getYPosition(), shape.getXPosition());
+		}
 	}
 
 	/**

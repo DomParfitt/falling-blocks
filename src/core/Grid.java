@@ -77,7 +77,7 @@ public class Grid extends Observable implements Iterable<Row> {
 		String output = "";
 		
 		for(Row row : this) {
-			output += "#" + row.getId() + ") " + row + "\n";
+			output += "#" + row.getId() + ") \t" + row + "\n";
 		}
 
 		return output;

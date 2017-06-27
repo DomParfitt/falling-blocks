@@ -30,4 +30,10 @@ public class Position {
 	public String toString() {
 		return "(" + x + ", " + y + ")";
 	}
+	
+	@Override
+	public boolean equals(Object other) {
+		Position otherPos = (Position) other;
+		return this.getX() == otherPos.getX() && this.getY() == otherPos.getY();
+	}
 }

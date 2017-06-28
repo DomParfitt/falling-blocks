@@ -1,13 +1,32 @@
 .empty-space {
 	-fx-border-color: black;
 	-fx-background-color: lightgray;
-	-fx-pref-height: 50px;
-	-fx-pref-width: 50px; 	
+	-fx-pref-height: 50.0px;
+	-fx-pref-width: 50.0px; 	
 }
 
 .block {
+
+	-fx-pref-height: 50.0px;
+	-fx-pref-width: 50.0px;
+}
+
+.red {
 	-fx-border-color: darkred;
 	-fx-background-color: red; 
-	-fx-pref-height: 50px;
-	-fx-pref-width: 50px;
+}
+
+.green {
+	-fx-border-color: darkgreen;
+	-fx-background-color: green; 
+}
+
+.blue {
+	-fx-border-color: darkblue;
+	-fx-background-color: blue; 
+}
+
+.yellow {
+	-fx-border-color: darkorange;
+	-fx-background-color: yellow; 
 }

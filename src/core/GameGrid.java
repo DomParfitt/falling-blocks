@@ -227,10 +227,10 @@ public class GameGrid extends Grid {
 	 */
 	public void addNewShape(Shape shape, int col) {
 		addShape(shape, rows, col);
-		if(!canMoveShapeDown()) {
-			hasGameEnded = true;
-			hasActiveShape = false;
-		}
+//		if(!canMoveShapeDown()) {
+//			hasGameEnded = true;
+//			hasActiveShape = false;
+//		}
 	}
 
 	/**
@@ -312,6 +312,9 @@ public class GameGrid extends Grid {
 				addShape(shape, shape.getYPosition() - 1, shape.getXPosition());
 			} else {
 				hasActiveShape = false;
+				if(shape.getYPosition() >= rows) {
+					hasGameEnded = true;
+				}
 			}
 		}
 	}

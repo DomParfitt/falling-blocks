@@ -76,7 +76,6 @@ public class Game extends Observable implements Observer {
 				}
 			} else {
 				grid.removeCompletedRows();
-				System.out.println("Dropping new shape");
 				currentShape = nextShape;
 				nextShape = shapeFactory.getShape();
 				grid.addNewShape(currentShape, rand.nextInt(7)); //TODO: Remove magic number
